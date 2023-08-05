@@ -1,0 +1,23 @@
+Meta Class
+-----------
+The class Meta inner class in a Django form is used to provide metadata about the form and its behavior. 
+It allows you to customize various aspects of how the form works and how it interacts with the underlying model.
+
+CODE:
+-----
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']  # Specify the fields you want in the form
+-----
+
+model: This specifies the model that the form is associated with, in this case, the User model from django.contrib.auth.models.
+
+fields: This specifies the fields that should be included in the form. You can include any subset of fields from the User model that you want to display in the registration form. In this case, we've included 'username', 'password1', and 'password2'.
+
+You can further customize the form by adding more fields, widgets, labels, help texts, and more within the class Meta.
+---------------------------------------------------------------------------------------------------------------------

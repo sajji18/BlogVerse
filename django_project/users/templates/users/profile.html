@@ -1,0 +1,7 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <!-- We do not need to pass in user, it is already built in django -> represents logged in user -->
+    <h1>{{ user.username }}</h1>
+{% endblock content %}
+
