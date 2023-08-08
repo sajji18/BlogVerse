@@ -125,6 +125,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# MEDIA_ROOT is the full path to directory where we want django to store image files
+# Now when we upload an image, it will create a profile pics directory inside of this media directory
+# Media directory is located in the base directory of the project 
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type
@@ -132,5 +138,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Redirecting url for logged in and non logged in users respectively
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'

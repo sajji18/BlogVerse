@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 # flash messages -> messages.something --> something = debug, info, success, warning, error
 
@@ -24,4 +24,15 @@ def register(request):
 # add functionality that user must be logged in to view this page
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    # these are model forms that are expecting to be working on specific model
+    # so we can populate these forms just by passing the instance of object it expects
+    u_form = UserUpdateForm(instance=request.user)
+    # with this userform will have username and email filled in and profileform will have image filled in
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+    # passing the context into templates so we can access these forms
+    return render(request, 'users/profile.html', context)
