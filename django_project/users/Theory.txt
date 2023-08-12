@@ -21,3 +21,7 @@ fields: This specifies the fields that should be included in the form. You can i
 
 You can further customize the form by adding more fields, widgets, labels, help texts, and more within the class Meta.
 ---------------------------------------------------------------------------------------------------------------------
+
+LOGIN_REDIRECT_URL: This setting specifies the URL where the user will be redirected after successfully logging in. In this case, 'blog-home' is set as the redirect URL. After a user logs in, they will be redirected to the 'blog-home' URL, which is likely associated with a view that displays the homepage of your blog application.
+
+LOGIN_URL: This setting specifies the URL to which the user will be redirected if they attempt to access a protected resource (a view that requires authentication) without being logged in. In this case, 'login' is set as the login URL. If an unauthenticated user tries to access a protected page, they will be redirected to the 'login' URL, where they can enter their credentials to log in.

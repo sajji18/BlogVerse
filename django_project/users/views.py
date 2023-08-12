@@ -25,7 +25,7 @@ def register(request):
 @login_required
 def profile(request):
     # these are model forms that are expecting to be working on specific model
-    # so we can populate these forms just by passing the instance of object it expects
+    # so we can populate these forms just by passing the instance of object it expects*
     # with this userform will have username and email filled in and profileform will have image filled in
     if request.method == 'POST': 
         u_form = UserUpdateForm(request.POST, instance=request.user)
@@ -37,11 +37,13 @@ def profile(request):
             p_form.save()
             messages.success(request, f'Your account has been updated!')
             return redirect('profile')
-        
+    
+    # if rewuest not post, populating with existing data
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
         
+    # context dictionary is used to pass the forms for rendering in the templates
     context = {
         'u_form': u_form,
         'p_form': p_form
