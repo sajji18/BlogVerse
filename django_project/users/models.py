@@ -4,7 +4,7 @@ from PIL import Image
 
 # Create your models here.
 class Profile(models.Model):
-    # CASCADE means if user is deleted, then also ddelete the profile, but not vice versa
+    # CASCADE means if user is deleted, then also delete the profile, but not vice versa
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     

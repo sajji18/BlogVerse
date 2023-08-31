@@ -38,7 +38,7 @@ def profile(request):
             messages.success(request, f'Your account has been updated!')
             return redirect('profile')
     
-    # if rewuest not post, populating with existing data
+    # if request not post, populating with existing data
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)

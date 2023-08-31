@@ -31,7 +31,7 @@ class PostListView(ListView):
     model = Post 
     template_name = 'blog/home.html' # django looks for template -> <app>/<model>_<view_type>.html
     # either we can create one with the name or change the template_name
-    context_object_name = 'posts' # by default list view calls this variable object list instead of post
+    context_object_name = 'posts' # by default list view calls this variable object_list instead of posts
     ordering = ['-date_posted']
     paginate_by = 5
     
